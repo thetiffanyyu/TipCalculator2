@@ -15,6 +15,10 @@ class ViewController: UIViewController{
     @IBOutlet weak var TotalLabel: UILabel!
     @IBOutlet weak var TipControl: UISegmentedControl!
     @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var PerPersonLabel: UILabel!
+    
     //var LabelText = String()
     var tip1 = "15"
     var tip2 = "18"
@@ -29,8 +33,16 @@ class ViewController: UIViewController{
         TipControl.setTitle("\(tip2)%", forSegmentAtIndex:1)
         TipControl.setTitle("\(tip3)%", forSegmentAtIndex:2)
         // Do any additional setup after loading the view, typically from a nib.
+        //stepper.value = 1
+        stepper.wraps = true
+        stepper.autorepeat = true
+        stepper.minimumValue = 1
+        stepper.maximumValue = 100
     }
-
+    @IBAction func stepperValueChanged(sender: UIStepper) {
+        valueLabel.text = "\(Int(stepper.value))"
+        
+    }
     @IBAction func onEditingChanged(sender: AnyObject) {
         let t1 = NSString(string: tip1).doubleValue/100
         let t2 = NSString(string: tip2).doubleValue/100
@@ -38,12 +50,16 @@ class ViewController: UIViewController{
         let tipPercentages = [t1,t2,t3]
         let tipPercent = tipPercentages[TipControl.selectedSegmentIndex]
         let subtotal = NSString(string: SubTotalField.text!).doubleValue
+        let numPeople = NSString(string: valueLabel.text!).doubleValue
         let tip = subtotal * tipPercent
         let total = subtotal + tip
         TipLabel.text = "$\(tip)"
         TotalLabel.text = "$\(total)"
         TipLabel.text = String (format: "$%.2f", tip)
         TotalLabel.text = String (format: "$%.2f",total)
+        let perPerson = total/numPeople
+        PerPersonLabel.text = String(format: "$%.2f",perPerson)
+        
        
 
 
