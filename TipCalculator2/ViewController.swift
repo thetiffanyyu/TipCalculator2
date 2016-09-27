@@ -40,7 +40,19 @@ class ViewController: UIViewController{
         stepper.maximumValue = 100
     }
     @IBAction func stepperValueChanged(sender: UIStepper) {
-        valueLabel.text = "\(Int(stepper.value))"
+        valueLabel.text = Int(sender.value).description
+        let numPeople = NSString(string: valueLabel.text!).doubleValue
+        let t1 = NSString(string: tip1).doubleValue/100
+        let t2 = NSString(string: tip2).doubleValue/100
+        let t3 = NSString(string: tip3).doubleValue/100
+        let tipPercentages = [t1,t2,t3]
+        let tipPercent = tipPercentages[TipControl.selectedSegmentIndex]
+        let subtotal = NSString(string: SubTotalField.text!).doubleValue
+        let tip = subtotal * tipPercent
+        let total = subtotal + tip
+        let perPerson = total/numPeople
+        PerPersonLabel.text = String(format: "$%.2f",perPerson)
+
         
     }
     @IBAction func onEditingChanged(sender: AnyObject) {
@@ -50,15 +62,16 @@ class ViewController: UIViewController{
         let tipPercentages = [t1,t2,t3]
         let tipPercent = tipPercentages[TipControl.selectedSegmentIndex]
         let subtotal = NSString(string: SubTotalField.text!).doubleValue
-        let numPeople = NSString(string: valueLabel.text!).doubleValue
+//        let numPeople = NSString(string: valueLabel.text!).doubleValue
+        //let numPeople = Double(stepper.value)
         let tip = subtotal * tipPercent
         let total = subtotal + tip
         TipLabel.text = "$\(tip)"
         TotalLabel.text = "$\(total)"
         TipLabel.text = String (format: "$%.2f", tip)
         TotalLabel.text = String (format: "$%.2f",total)
-        let perPerson = total/numPeople
-        PerPersonLabel.text = String(format: "$%.2f",perPerson)
+//        let perPerson = total/numPeople
+//        PerPersonLabel.text = String(format: "$%.2f",perPerson)
         
        
 
