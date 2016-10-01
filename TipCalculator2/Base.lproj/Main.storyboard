@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hsh-6w-xwR">
-                                <rect key="frame" x="70" y="103" width="460" height="394"/>
+                                <rect key="frame" x="70" y="116" width="460" height="394"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qAq-J0-LKn" userLabel="Subtotal Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="460" height="40"/>
@@ -153,7 +153,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-sn-utC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6x-sn-utC">
                                                 <rect key="frame" x="132" y="0.0" width="328" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="GCg-bn-V51"/>
@@ -217,7 +217,7 @@
                                 </variation>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Math" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6A-zr-xHO">
-                                <rect key="frame" x="241" y="27" width="119" height="56"/>
+                                <rect key="frame" x="241" y="40" width="119" height="56"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -226,13 +226,19 @@
                         <color key="backgroundColor" red="0.49105239464774331" green="0.86674871355610306" blue="0.82213467331536516" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="T6A-zr-xHO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="C3B-At-f3D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hsh-6w-xwR" secondAttribute="trailing" constant="50" id="JOo-nO-wSr"/>
                             <constraint firstItem="T6A-zr-xHO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MKt-FP-yMv"/>
                             <constraint firstItem="hsh-6w-xwR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="bcy-aa-MRY"/>
                             <constraint firstItem="hsh-6w-xwR" firstAttribute="top" secondItem="T6A-zr-xHO" secondAttribute="bottom" constant="20" id="gQL-Lu-lOJ"/>
-                            <constraint firstItem="hsh-6w-xwR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lJ0-0z-RgI"/>
+                            <constraint firstItem="hsh-6w-xwR" firstAttribute="top" secondItem="T6A-zr-xHO" secondAttribute="bottom" constant="10" id="kdq-By-sy3"/>
                             <constraint firstItem="hsh-6w-xwR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lLE-7i-KD5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kdq-By-sy3"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="iDG-M7-JAs" appends="YES" id="88Z-9v-Cg3"/>
                         </connections>
